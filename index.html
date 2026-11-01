@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>流云蝶影 · 500 件工具箱 — 离线 · 无广告 · 装好即用</title>
-<meta name="description" content="流云蝶影 500 件工具箱 v1.0.3：500 件手工打磨的安卓实用工具，全程离线运行，零广告、零推送、零账号。安装即用，数据只留在本机。">
+<meta name="description" content="流云蝶影 500 件工具箱 v1.0.3：500 件手工打磨的实用工具，全程离线运行，零广告、零推送、零账号。支持 Android 与 Windows 双平台，安装即用，数据只留在本机。">
 <meta name="theme-color" content="#060807">
 <link rel="icon" href="assets/app-icon.png">
 <style>
@@ -349,8 +349,23 @@ section{position:relative}
 .dl h2{font-size:clamp(34px,5.4vw,76px);letter-spacing:.01em}
 .dl p{margin:26px auto 0;max-width:32em;font-size:14px;line-height:2;color:var(--cream-2)}
 .dl .btn--solid{margin-top:44px;padding:20px 34px;font-size:14.5px}
-.dl .hash{margin-top:34px;max-width:none;font-family:var(--mono);font-size:11px;line-height:1.9;letter-spacing:.1em;color:rgba(242,239,231,.46);word-break:break-all}
+.dlgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:780px;margin:46px auto 0}
+.dlcard{position:relative;display:block;text-align:left;padding:30px 28px 26px;border:1px solid var(--line);
+  border-radius:18px;background:rgba(242,239,231,.028);overflow:hidden;
+  transition:transform .55s var(--ease),border-color .45s ease,background .45s ease,box-shadow .45s ease}
+.dlcard:hover{transform:translateY(-4px);border-color:rgba(147,201,183,.42);background:rgba(147,201,183,.06);
+  box-shadow:0 30px 70px -40px rgba(147,201,183,.55)}
+.dlcard__os{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;color:var(--mint);text-transform:uppercase}
+.dlcard b{display:block;margin-top:18px;font-family:var(--serif);font-size:clamp(24px,2.6vw,32px);font-weight:600;letter-spacing:.01em;color:var(--cream);line-height:1.15}
+.dlcard small{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--cream-3);text-transform:uppercase}
+.dlcard__go{position:absolute;right:26px;top:30px;font-family:var(--mono);font-size:13px;color:var(--cream-3);
+  transition:transform .5s var(--ease),color .4s ease}
+.dlcard:hover .dlcard__go{transform:translate(3px,-3px);color:var(--mint)}
+.dl-note{max-width:36em;margin-top:26px;font-size:12px;line-height:1.9;color:rgba(242,239,231,.42)}
+.dl-note b{color:rgba(242,239,231,.7);font-weight:500}
+.dl .hash{margin-top:30px;max-width:none;font-family:var(--mono);font-size:11px;line-height:1.9;letter-spacing:.1em;color:rgba(242,239,231,.46);word-break:break-all}
 .dl .hash b{display:inline-block;margin-right:.9em;color:var(--mint);font-weight:400;letter-spacing:.18em}
+.dl .hash u{display:block;text-decoration:none;margin-top:6px;font-size:10px;letter-spacing:.2em;color:rgba(242,239,231,.32)}
 
 /* ============================================================
    13 · 页脚
@@ -422,6 +437,9 @@ section{position:relative}
   .frame .corner.tr{top:10px;right:10px}
   .frame .corner.bl{bottom:10px;left:10px}
   .frame .corner.br{bottom:10px;right:10px}
+  .dlgrid{grid-template-columns:1fr;gap:12px}
+  .dlcard{padding:24px 22px 22px}
+  .dlcard__go{right:22px;top:24px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.001ms!important}
@@ -477,7 +495,7 @@ section{position:relative}
 
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow in" data-reveal=""><span class="dot"></span>android · 0 广告 · 0 联网 · 500 件工具</p>
+        <p class="eyebrow in" data-reveal=""><span class="dot"></span>android + windows · 0 广告 · 0 联网 · 500 件工具</p>
         <h1 class="display in" data-reveal="" style="--d:80ms">
           <span class="l1">流云蝶影</span>
           <span class="l2"><em>500</em> 件工具箱</span>
@@ -491,11 +509,11 @@ section{position:relative}
           <a class="btn btn--solid magnetic" href="download/流云蝶影-500工具箱-v1.0.3.apk" download="" data-cursor="" style="">
             下载 APK<small>v1.0.3 · 0.7 MB</small>
           </a>
-          
+          <a class="btn btn--ghost magnetic" href="#download" data-cursor="">Windows 版<small>免安装 · 105 MB</small></a>
         </div>
         <ul class="hero-meta in" data-reveal="" style="--d:320ms">
           <li><b>v1.0.3</b><span>当前版本</span></li>
-          <li><b>Android 7.0+</b><span>系统要求</span></li>
+          <li><b>Android / Win</b><span>双端支持</span></li>
           <li><b>WU加固</b><span>签名校验</span></li>
         </ul>
       </div>
@@ -720,15 +738,28 @@ section{position:relative}
     <div class="wrap in">
       <p class="mono in" data-reveal="">06 — 获取</p>
       <h2 class="display in" data-reveal="" style="--d:80ms;margin-top:22px">装好，就能用。</h2>
-      <p data-reveal="" style="--d:160ms" class="in">下载安装包，允许“未知来源”，点开即用。不需要注册，不需要登录，
-        也不需要给它任何权限——除了它真正用到的那几项。</p>
-      <div data-reveal="" style="--d:240ms" class="in">
-        <a class="btn btn--solid magnetic" href="download/流云蝶影-500工具箱-v1.0.3.apk" download="" data-cursor="">
-          下载 APK<small>v1.0.3 · 0.7 MB · Android 7.0+</small>
+      <p data-reveal="" style="--d:160ms" class="in">两个平台，同一套 500 件工具。手机端允许“未知来源”后点开即装；
+        桌面端是免安装便携版，双击即跑。都不需要注册，不需要登录。</p>
+      <div class="dlgrid in" data-reveal="" style="--d:240ms">
+        <a class="dlcard" href="download/流云蝶影-500工具箱-v1.0.3.apk" download="" data-cursor="">
+          <span class="dlcard__os">Android</span>
+          <span class="dlcard__go">↓</span>
+          <b>下载 APK</b>
+          <small>v1.0.3 · 0.7 MB · Android 7.0+</small>
+        </a>
+        <a class="dlcard" href="https://github.com/WuKugf/wuku.github.io/releases/download/v1.0.3/liuyun-windows-1.0.3.exe" data-cursor="">
+          <span class="dlcard__os">Windows</span>
+          <span class="dlcard__go">↓</span>
+          <b>下载 EXE</b>
+          <small>v1.0.3 · 105 MB · Windows 10 / 11</small>
         </a>
       </div>
-      <p class="hash in" data-reveal="" style="--d:320ms">
-        <b>SHA-256</b> d7c28e35ce62b2f023872b1214575f475a67febcea852e03bda098eb1ce1622b
+      <p class="dl-note in" data-reveal="" style="--d:300ms">
+        Windows 版首次运行若提示“<b>已阻止无法识别的应用</b>”，点“更多信息 → 仍要运行”即可。
+      </p>
+      <p class="hash in" data-reveal="" style="--d:360ms">
+        <b>SHA-256 / APK</b> d7c28e35ce62b2f023872b1214575f475a67febcea852e03bda098eb1ce1622b
+        <u>SHA-256 / EXE — cfd3065b7cdc222f585d1909724ee123f50008aa963d7721b0215f6537b73841</u>
       </p>
     </div>
   </section>
